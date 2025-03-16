@@ -1,0 +1,694 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #111;
+    border-bottom: 1px solid #333;
+    height: 80px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.beta-label {
+    background-color: #ff5722;
+    color: #fff;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Más espacio entre créditos y el menú */
+}
+
+.credits {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Más espacio entre el ícono y el número */
+    font-size: 20px; /* Tamaño más grande */
+}
+
+.credits i {
+    font-size: 24px; /* Ícono más grande */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 32px; /* Ícono más grande */
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #222;
+    min-width: 200px; /* Menú más ancho */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 15px 20px; /* Más espacio interno */
+    text-decoration: none;
+    display: block;
+    font-size: 16px; /* Texto más grande */
+}
+
+.dropdown-content a:hover {
+    background-color: #333;
+}
+
+.dropdown-content .account {
+    color: #fff;
+}
+
+.dropdown-content .buy-credits {
+    color: #ffa500; /* Naranja-amarillento */
+}
+
+.dropdown-content .notifications {
+    color: #fff;
+}
+
+.dropdown-content .logout {
+    color: #ff4444; /* Rojo */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Contenido principal */
+main {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+    gap: 40px; /* Separación entre input y output */
+    justify-content: center;
+    align-items: flex-start;
+    height: calc(100vh - 80px);
+}
+
+.input-section, .output-section {
+    width: 45%; /* Ancho generoso */
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.image-container {
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh; /* Altura casi completa */
+}
+
+.upload-box {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.upload-btn {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.upload-btn:hover {
+    background-color: #444;
+}
+
+#imageUpload {
+    display: none;
+}
+
+canvas {
+    background-color: #111;
+    border: 1px solid #444;
+    border-radius: 5px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.change-image-btn {
+    background-color: #444;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    display: none; /* Oculto por defecto */
+}
+
+.change-image-btn:hover {
+    background-color: #555;
+}
+
+/* Menú del pincel con lupas y mano */
+.brush-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-block;
+}
+
+.brush-btn {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.brush-btn:hover {
+    background-color: #444;
+}
+
+.brush-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #222;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.brush-menu:hover .brush-dropdown {
+    display: flex;
+}
+
+.brush-icon {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    text-align: center;
+}
+
+.brush-icon:hover {
+    background-color: #444;
+}
+
+.brush-icon::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #222;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.brush-icon:hover::after {
+    opacity: 1;
+}
+
+#generateBtn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#generateBtn:hover {
+    background-color: #0056b3;
+}
+
+.credit-cost {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+}
+
+.output-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.output-buttons button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.output-buttons button:hover {
+    background-color: #444;
+}
+
+/* Modal de autenticación */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.modal-content #loginBtn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.modal-content #loginBtn:hover {
+    background-color: #0056b3;
+}
+
+.modal-content #registerBtn {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.modal-content #registerBtn:hover {
+    background-color: #218838;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ccc;
+}
+
+/* Estilos generales del footer */
+.footer {
+    background-color: #111; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    padding: 20px 0; /* Espaciado interno */
+    text-align: center; /* Centrar contenido */
+    border-top: 1px solid #333; /* Borde superior */
+    margin-top: auto; /* Para que el footer se quede abajo */
+}
+
+.footer-content {
+    max-width: 1200px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centrar el contenido */
+    padding: 0 20px; /* Espaciado lateral */
+}
+
+.footer-links {
+    list-style: none; /* Quitar viñetas */
+    padding: 0; /* Quitar padding por defecto */
+    margin: 10px 0 0; /* Margen superior */
+    display: flex; /* Mostrar enlaces en línea */
+    justify-content: center; /* Centrar enlaces */
+    gap: 20px; /* Espacio entre enlaces */
+}
+
+.footer-links a {
+    color: #fff; /* Texto blanco */
+    text-decoration: none; /* Quitar subrayado */
+    font-size: 14px; /* Tamaño de fuente */
+    transition: color 0.3s ease; /* Transición suave */
+}
+
+.footer-links a:hover {
+    color: #007bff; /* Cambiar color al pasar el mouse */
+}
+
+/* Estilos del modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con blur */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.modal-content #loginBtn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.modal-content #loginBtn:hover {
+    background-color: #0056b3;
+}
+
+.modal-content #registerBtn {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.modal-content #registerBtn:hover {
+    background-color: #218838;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ccc;
+}
+
+/* Estilos para el Popup de Login/Registro */
+.auth-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.auth-popup-content {
+    background-color: #222;
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.auth-tabs .tab {
+    background: none;
+    border: none;
+    color: #888;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.auth-tabs .tab.active {
+    color: #fff;
+    border-bottom: 2px solid #007bff;
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+.auth-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.auth-form button:hover {
+    background-color: #0056b3;
+}
+
+.auth-switch {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #888;
+}
+
+.auth-switch a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+.auth-warning {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #ff4444;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.auth-warning i {
+    font-size: 14px;
+}
+
+/* Botón para volver a la IA */
+.back-to-ia {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.btn-back {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-back:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para el Popup de Autenticación Requerida */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+}
+
+.auth-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.auth-actions a {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    transition: background-color 0.3s;
+}
+
+.auth-actions a:hover {
+    background-color: #0056b3;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ccc;
+}

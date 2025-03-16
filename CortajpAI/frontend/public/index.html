@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CortajpAI</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            CortajpAI <span class="beta-label">ALPHA VERSION</span>
+        </div>
+
+        <!-- Menú No Autenticado -->
+        <div class="user-menu logged-out">
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="account.html" id="openLoginModal">Iniciar Sesión</a>
+                    <a href="account.html" id="openRegisterModal">Registrarse</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Autenticado -->
+        <div class="user-menu logged-in" style="display: none;">
+            <div class="credits">
+                <i class="fas fa-coins"></i>
+                <span id="creditCount">0</span>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#" class="account">
+                        <i class="fas fa-user"></i> Tu cuenta
+                    </a>
+                    <a href="#" class="buy-credits">
+                        <i class="fas fa-shopping-cart"></i> Comprar créditos
+                    </a>
+                    <a href="#" class="notifications">
+                        <i class="fas fa-bell"></i> Notificaciones
+                    </a>
+                    <a href="#" class="logout">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <!-- Sección de input -->
+        <div class="input-section">
+            <h2>INPUT</h2>
+            <div class="image-container">
+                <div class="upload-box" id="uploadBox">
+                    <label for="imageUpload" class="upload-btn">
+                        <i class="fas fa-upload"></i> Subir imagen
+                    </label>
+                    <input type="file" id="imageUpload" accept="image/*">
+                </div>
+                <canvas id="inputCanvas"></canvas>
+                <button id="changeImageBtn" class="change-image-btn">
+                    <i class="fas fa-sync"></i>
+                </button>
+            </div>
+            <!-- Menú del pincel con lupas y mano -->
+            <div class="brush-menu">
+                <button class="brush-btn">
+                    <i class="fas fa-paint-brush"></i>
+                </button>
+                <div class="brush-dropdown">
+                    <div class="brush-icon" title="Aumentar tamaño">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="brush-icon" title="Disminuir tamaño">
+                        <i class="fas fa-minus"></i>
+                    </div>
+                    <div class="brush-icon" title="Goma">
+                        <i class="fas fa-eraser"></i>
+                    </div>
+                    <div class="brush-icon" title="Eliminar todo">
+                        <i class="fas fa-trash"></i>
+                    </div>
+                    <div class="brush-icon" title="Acercar">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="brush-icon" title="Alejar">
+                        <i class="fas fa-search-minus"></i>
+                    </div>
+                    <div class="brush-icon" title="Mover">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                </div>
+            </div>
+            <button id="generateBtn">Generar</button>
+            <div class="credit-cost">Esto costará <span id="cost">1</span> crédito(s).</div>
+        </div>
+
+        <!-- Sección de output -->
+        <div class="output-section">
+            <h2>OUTPUT</h2>
+            <div class="image-container">
+                <canvas id="outputCanvas"></canvas>
+            </div>
+            <div class="output-buttons">
+                <button id="downloadBtn">
+                    <i class="fas fa-download"></i> Descargar
+                </button>
+                <button id="tryAgainBtn">
+                    <i class="fas fa-redo"></i> Intentar de nuevo
+                </button>
+            </div>
+        </div>
+    </main>
+    <div id="authRequiredPopup" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Acceso Requerido</h2>
+            <p>Debes iniciar sesión o registrarte para continuar.</p>
+            <div class="auth-actions">
+                <a href="account.html" class="btn-login">Iniciar Sesión</a>
+                <a href="account.html" class="btn-register">Registrarse</a>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 CortajpAI. Todos los derechos reservados.</p>
+            <ul class="footer-links">
+                <li><a href="terms&pol/privacy_policy.html">Política de Privacidad</a></li>
+                <li><a href="terms&pol/terms.html">Términos y Condiciones</a></li>
+                <li><a href="mailto:business@cortajp.com">Contacto</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../src/scripts/main.js"></script>
+</body>
+</html>

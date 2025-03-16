@@ -1,0 +1,159 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+}
+
+h1, h2, h3 {
+    color: #fff; /* Texto blanco para los títulos */
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    color: #1e90ff; /* Azul claro para los enlaces */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Footer Styles */
+footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #444; /* Línea divisoria gris */
+    text-align: center;
+}
+
+.footer-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-links a {
+    color: #1e90ff; /* Azul claro para los enlaces del footer */
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.75em;
+    }
+
+    h3 {
+        font-size: 1.25em;
+    }
+
+    .footer-links li {
+        display: block;
+        margin: 5px 0;
+    }
+}
+
+/* Estilos para el botón de volver a la página principal */
+.back-to-home {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3a3a3a; /* Azul claro */
+    color: #fff; /* Texto blanco */
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+/* Ajustes para el botón en dispositivos móviles */
+@media (max-width: 768px) {
+    .back-to-home {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+    }
+}
+
+/* Estilos para el recuadro de resumen */
+.summary-box {
+    background-color: #1e1e1e; /* Fondo oscuro */
+    border: 1px solid #444; /* Borde gris */
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-width: 800px; /* Ancho máximo del recuadro */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.summary-box h3 {
+    color: #1e90ff; /* Azul claro para el título */
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.summary-box p {
+    color: #fff; /* Texto blanco */
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.summary-box em {
+    color: #ccc; /* Texto gris claro para la nota */
+    font-size: 0.9em;
+    display: block;
+    margin-top: 10px;
+}
